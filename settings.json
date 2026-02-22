@@ -1,0 +1,14 @@
+{
+  "autocompleteMaxVisible": 20,
+  "lastChangelogVersion": "0.54.1",
+  "defaultProvider": "google-vertex",
+  "defaultModel": "gemini-3.1-pro-preview",
+  "quietStartup": true,
+  "theme": "my-theme",
+  "enabledModels": [
+    "*claude-*",
+    "*gemini-3*",
+    "*grok-4*",
+    "x-ai/grok-4*"
+  ]
+}
