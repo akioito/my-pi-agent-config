@@ -1,6 +1,6 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "0.55.0",
+  "lastChangelogVersion": "0.55.1",
   "defaultProvider": "vertex-anthropic",
   "defaultModel": "claude-sonnet-4-6",
   "quietStartup": true,
@@ -10,5 +10,6 @@
     "*gemini-3*",
     "*grok-4*",
     "x-ai/grok-4*"
-  ]
+  ],
+  "defaultThinkingLevel": "off"
 }
