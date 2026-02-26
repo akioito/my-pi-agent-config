@@ -1,8 +1,8 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "0.54.1",
-  "defaultProvider": "google-vertex",
-  "defaultModel": "gemini-3.1-pro-preview",
+  "lastChangelogVersion": "0.55.0",
+  "defaultProvider": "vertex-anthropic",
+  "defaultModel": "claude-sonnet-4-6",
   "quietStartup": true,
   "theme": "my-theme",
   "enabledModels": [
