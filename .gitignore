@@ -1,4 +1,5 @@
 extensions/
 sessions/
+.extmgr-cache
 settings.json
 auth.json
