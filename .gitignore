@@ -3,3 +3,9 @@ sessions/
 .extmgr-cache
 settings.json
 auth.json
+cache/pi-xai-oauth/models-v2.json
+claude-bridge-diag.log
+models-store.json
+sandbox.json
+trust.json
+usage-extension-cache.json
