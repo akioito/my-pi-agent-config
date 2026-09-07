@@ -1,14 +1,23 @@
 ---
-description: Generate or update documentation
+description: Generate or update project documentation or inline docstrings
+argument-hint: "<file or directory>"
 ---
-Generate documentation for the following code. Include:
+Generate or update documentation for the target:
 
-1. **Overview** — What it does and why it exists
-2. **API** — Functions/methods with parameters, return types, examples
-3. **Usage** — How to use it with code examples
-4. **Configuration** — Available options and defaults
-5. **Error handling** — What errors can occur and how to handle them
+${@:-Identify recently modified files lacking documentation or the project README.}
 
-Match the project's existing documentation style. Use JSDoc/docstrings as appropriate.
+Workflow:
+1. **Inspect Target**:
+   - Read the target files to understand purpose, inputs, outputs, errors, and existing doc style.
+   - Check whether the project uses JSDoc/TSDoc, Python docstrings, Go comments, or markdown files (`docs/`, `README.md`).
 
-$@
+2. **Apply Documentation**:
+   - **For inline docs**: Use `edit` to add or update docstrings directly in the source files. Document parameters, return values, exceptions, and non-obvious behavior. Do not add noise comments for self-explanatory code.
+   - **For markdown docs**: Use `write` or `edit` to create or update relevant documentation files with:
+     - Overview & motivation
+     - API references / signatures
+     - Practical usage examples
+     - Configuration and defaults
+
+3. **Verify**:
+   - Ensure documentation accurately reflects the code without stale claims or broken code snippets.

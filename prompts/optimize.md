@@ -1,14 +1,25 @@
 ---
-description: Optimize code for performance
+description: Profile, optimize performance, and verify with benchmarks
+argument-hint: "<file, function, or performance issue>"
 ---
-Optimize the following code for performance. Approach:
+Optimize performance for the following target:
 
-1. **Measure first** — Identify the actual bottleneck
-2. **Algorithm** — Can we use a better data structure or algorithm?
-3. **I/O** — Reduce network calls, disk reads, unnecessary allocations
-4. **Caching** — What can be memoized or cached?
-5. **Concurrency** — Can work be parallelized?
+${@:-Identify performance bottlenecks in the current workspace or profile recent changes.}
 
-Show before/after with expected improvement. Don't sacrifice readability for micro-optimizations.
+Approach:
+1. **Analyze & Measure**:
+   - Inspect the code to identify the actual algorithmic, memory, or I/O bottleneck.
+   - Where feasible, run existing benchmarks or measure execution time before changes using `bash`.
+   - Distinguish real hotspots from premature micro-optimizations.
 
-$@
+2. **Optimize**:
+   - Address the root inefficiency:
+     - **Algorithmic**: Improve time/space complexity (e.g. O(n²) to O(n)), use appropriate data structures.
+     - **I/O & Network**: Batch requests, avoid redundant disk/database roundtrips, stream large data.
+     - **Memory**: Reduce unnecessary allocations, avoid memory leaks, reuse buffers.
+     - **Caching**: Memoize expensive deterministic computations where appropriate.
+   - Use `edit` to apply changes directly to the target file.
+
+3. **Verify**:
+   - Run the test suite via `bash` to prove functional behavior has not broken.
+   - Measure or demonstrate the performance improvement.

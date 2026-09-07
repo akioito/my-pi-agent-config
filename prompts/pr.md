@@ -1,24 +1,31 @@
 ---
-description: Generate a pull request description
+description: Generate a comprehensive pull request title and description from git changes
+argument-hint: "[base-branch]"
 ---
-Generate a PR description based on the changes in this branch (`git log --oneline main..HEAD` and `git diff main`).
+Generate a pull request title and description based on the branch changes.
 
-Structure:
-## What
-Brief description of the change.
+1. **Inspect Changes via `bash`**:
+   - Determine the base branch: use "${1}" if provided, otherwise detect via `git rev-parse --verify main 2>/dev/null && echo main || echo master`.
+   - Find the merge base: `BASE_SHA=$(git merge-base HEAD ${1:-main})` (fallback to master if main doesn't exist).
+   - Inspect commits: `git --no-pager log --oneline $BASE_SHA..HEAD`
+   - Inspect diff stats and key changes: `git --no-pager diff --stat $BASE_SHA..HEAD` and read critical diffs.
 
-## Why
-Motivation and context.
+2. **Generate Output**:
+   - **PR Title**: Conventional Commits format (e.g., `feat(api): add webhook retry logic`).
+   - **Description Body**:
+     ## Summary
+     Concise 2-3 sentence overview of what changed and why.
 
-## How
-Implementation approach and key decisions.
+     ## Changes
+     Grouped bullet points of key changes and architectural decisions.
 
-## Testing
-How this was tested.
+     ## Motivation & Context
+     Problem solved or feature enabled, linking any issue tickets.
 
-## Checklist
-- [ ] Tests added/updated
-- [ ] Documentation updated
-- [ ] No breaking changes (or documented)
+     ## Testing Done
+     Specific commands, automated tests, or manual scenarios verified.
 
-$@
+     ## Checklist
+     - [ ] Tests added/updated and passing
+     - [ ] Documentation updated
+     - [ ] No breaking changes (or migration path documented)
