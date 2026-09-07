@@ -12,10 +12,10 @@ This directory contains prompt templates for [Pi coding agent](https://github.co
 
 1. Type `/` in the Pi prompt editor.
 2. The autocomplete popup displays all available commands along with their **argument hints** and descriptions.
-3. Select or type a command name (e.g. `/fix`), press `Space` or `Tab`, and supply the requested arguments.
+3. Select or type a command name (e.g. `/fix-bug`), press `Space` or `Tab`, and supply the requested arguments.
 
 ```
-/fix "TypeError: cannot read properties of undefined (reading 'token')"
+/fix-bug "TypeError: cannot read properties of undefined (reading 'token')"
 ```
 
 ---
@@ -25,9 +25,9 @@ This directory contains prompt templates for [Pi coding agent](https://github.co
 Pi supports the `argument-hint` field in template frontmatter. It appears in the autocomplete dropdown between the command name and the description to tell you what inputs the command expects:
 
 ```
-→ fix       <error message, failing test, or issue description> — Diagnose and fix a bug with verification
-  commit    [context or instructions]                           — Generate a concise conventional git commit message in Japanese
-  review    [file, branch, or commit]                           — Review code or git diff for bugs, security, and quality
+→ fix-bug                      <error message, failing test, or issue description> — Diagnose and fix a bug with verification
+  commit-message-in-japanese   [context or instructions]                           — Generate a concise conventional git commit message in Japanese
+  code-review                  [file, branch, or commit]                           — Review code or git diff for bugs, security, and quality
 ```
 
 ### Notation Convention
@@ -36,14 +36,14 @@ Pi supports the `argument-hint` field in template frontmatter. It appears in the
 
 ### Argument Quoting Rules
 Pi parses template arguments using shell-style quoting:
-- **Single word**: `/review src/index.ts` (passed as `$1` and `$@`)
+- **Single word**: `/code-review src/index.ts` (passed as `$1` and `$@`)
 - **Multiple words with spaces**: Wrap in quotes:
   ```bash
-  /fix "TypeError: user.profile is null at line 42"
+  /fix-bug "TypeError: user.profile is null at line 42"
   ```
 - **Multiple positional arguments**:
   ```bash
-  /test src/services/auth.ts "verify JWT refresh token expiration"
+  /generate-tests src/services/auth.ts "verify JWT refresh token expiration"
   ```
 
 ---
@@ -52,117 +52,117 @@ Pi parses template arguments using shell-style quoting:
 
 | Command | Argument Hint | Type | Default Behavior (when omitted) |
 | :--- | :--- | :--- | :--- |
-| `/commit` | `[context or instructions]` | Optional | Inspects `git diff --cached` (or `git diff`) and generates Conventional Commit in Japanese. |
-| `/document` | `<file or directory>` | Required | Identifies recently modified undocumented files or project README. |
-| `/explain` | `<file, symbol, or concept>` | Required | Explains architecture and main entry points of current workspace. |
-| `/fix` | `<error message, failing test, or issue description>` | Required | Diagnoses failing tests or runtime errors found in workspace. |
-| `/optimize` | `<file, function, or performance issue>` | Required | Profiles recent changes or workspace bottlenecks. |
-| `/pr` | `[base-branch]` | Optional | Detects default base branch (`main` or `master`) and merge base. |
-| `/refactor` | `<file, function, or directory>` | Required | Prompts for target or inspects recently modified files. |
-| `/review` | `[file, branch, or commit]` | Optional | Inspects working changes (`git status` / `git diff HEAD`), then branch divergence. |
-| `/security` | `[file, directory, or dependency]` | Optional | Audits current workspace and recent modifications. |
-| `/test` | `<file or function>` | Required | Identifies untested recently changed files. |
+| `/commit-message-in-japanese` | `[context or instructions]` | Optional | Inspects `git diff --cached` (or `git diff`) and generates Conventional Commit in Japanese. |
+| `/generate-documentation` | `<file or directory>` | Required | Identifies recently modified undocumented files or project README. |
+| `/explain-code` | `<file, symbol, or concept>` | Required | Explains architecture and main entry points of current workspace. |
+| `/fix-bug` | `<error message, failing test, or issue description>` | Required | Diagnoses failing tests or runtime errors found in workspace. |
+| `/optimize-performance` | `<file, function, or performance issue>` | Required | Profiles recent changes or workspace bottlenecks. |
+| `/generate-pr-description` | `[base-branch]` | Optional | Detects default base branch (`main` or `master`) and merge base. |
+| `/refactor-code` | `<file, function, or directory>` | Required | Prompts for target or inspects recently modified files. |
+| `/code-review` | `[file, branch, or commit]` | Optional | Inspects working changes (`git status` / `git diff HEAD`), then branch divergence. |
+| `/security-audit` | `[file, directory, or dependency]` | Optional | Audits current workspace and recent modifications. |
+| `/generate-tests` | `<file or function>` | Required | Identifies untested recently changed files. |
 
 ---
 
 ## Detailed Usage Examples
 
-### 1. `/commit` — Conventional Git Commit Message
+### 1. `/commit-message-in-japanese` — Conventional Git Commit Message
 ```bash
 # Basic: Automatically reads staged or unstaged git diff
-/commit
+/commit-message-in-japanese
 
 # With instructions / ticket reference:
-/commit "JIRA-1234: mention the breaking schema change"
+/commit-message-in-japanese "JIRA-1234: mention the breaking schema change"
 ```
 
-### 2. `/review` — Code Review
+### 2. `/code-review` — Code Review
 ```bash
 # Review uncommitted working tree changes:
-/review
+/code-review
 
 # Review a specific file:
-/review src/server/auth.ts
+/code-review src/server/auth.ts
 
 # Review a branch or commit:
-/review feature/oauth-login
-/review HEAD~3..HEAD
+/code-review feature/oauth-login
+/code-review HEAD~3..HEAD
 ```
 
-### 3. `/fix` — Bug Diagnosis & Verification
+### 3. `/fix-bug` — Bug Diagnosis & Verification
 ```bash
 # Pass an exact runtime error:
-/fix "Error: listen EADDRINUSE: address already in use :::3000"
+/fix-bug "Error: listen EADDRINUSE: address already in use :::3000"
 
 # Pass a failing test scenario:
-/fix "auth.test.ts: token expiration test fails on leap year dates"
+/fix-bug "auth.test.ts: token expiration test fails on leap year dates"
 ```
 
-### 4. `/test` — Test Generation & Verification
+### 4. `/generate-tests` — Test Generation & Verification
 ```bash
 # Generate tests for a specific file:
-/test src/utils/formatters.ts
+/generate-tests src/utils/formatters.ts
 
 # Target a specific function:
-/test "src/auth/jwt.ts: verify validateToken function"
+/generate-tests "src/auth/jwt.ts: verify validateToken function"
 ```
 
-### 5. `/refactor` — Safe Refactoring with Verification
+### 5. `/refactor-code` — Safe Refactoring with Verification
 ```bash
 # Refactor a messy module:
-/refactor src/controllers/orderController.ts
+/refactor-code src/controllers/orderController.ts
 
 # Target a specific method:
-/refactor "processPayment method in PaymentService.ts"
+/refactor-code "processPayment method in PaymentService.ts"
 ```
 
-### 6. `/explain` — Deep-Dive Code Walkthrough
+### 6. `/explain-code` — Deep-Dive Code Walkthrough
 ```bash
 # Explain a file:
-/explain src/middleware/rate-limiter.ts
+/explain-code src/middleware/rate-limiter.ts
 
 # Explain a complex pattern or concept in the codebase:
-/explain "how the session compaction algorithm works in this repo"
+/explain-code "how the session compaction algorithm works in this repo"
 ```
 
-### 7. `/document` — Inline Comments or Markdown Docs
+### 7. `/generate-documentation` — Inline Comments or Markdown Docs
 ```bash
 # Add JSDoc/docstrings to a file:
-/document src/api/routes.ts
+/generate-documentation src/api/routes.ts
 
 # Update documentation for a module or folder:
-/document docs/api/
+/generate-documentation docs/api/
 ```
 
-### 8. `/optimize` — Performance Profiling & Optimization
+### 8. `/optimize-performance` — Performance Profiling & Optimization
 ```bash
 # Target an expensive function or query:
-/optimize "getUsersWithPosts query in UserRepository.ts"
+/optimize-performance "getUsersWithPosts query in UserRepository.ts"
 
 # General optimization request for a file:
-/optimize src/parser/stream-tokenizer.ts
+/optimize-performance src/parser/stream-tokenizer.ts
 ```
 
-### 9. `/pr` — Pull Request Description
+### 9. `/generate-pr-description` — Pull Request Description
 ```bash
 # Target default branch (main/master auto-detected):
-/pr
+/generate-pr-description
 
 # Explicitly target a different base branch:
-/pr develop
-/pr release/v2.0
+/generate-pr-description develop
+/generate-pr-description release/v2.0
 ```
 
-### 10. `/security` — Threat Modeling & Security Audit
+### 10. `/security-audit` — Threat Modeling & Security Audit
 ```bash
 # Audit working tree changes:
-/security
+/security-audit
 
 # Audit a sensitive module:
-/security src/auth/jwt.ts
+/security-audit src/auth/jwt.ts
 
 # Audit dependencies:
-/security package.json
+/security-audit package.json
 ```
 
 ---

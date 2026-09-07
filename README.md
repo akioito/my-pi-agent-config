@@ -15,24 +15,24 @@ This repository manages custom configurations for `~/.pi/agent`, providing:
 
 ```text
 ~/.pi/agent/
-├── prompts/              # Slash command prompt templates
-│   ├── README.md         # Detailed guide & argument hint documentation
-│   ├── commit.md         # /commit: Japanese Conventional Commit generator
-│   ├── document.md       # /document: Inline & Markdown docs generator
-│   ├── explain.md        # /explain: Architecture & code walkthrough
-│   ├── fix.md            # /fix: Reproduce, isolate, edit, verify bug fix
-│   ├── optimize.md       # /optimize: Profile & optimize performance
-│   ├── pr.md             # /pr: PR title & description generator
-│   ├── refactor.md       # /refactor: Safe refactoring with test verification
-│   ├── review.md         # /review: Systematic code review & diff analysis
-│   ├── security.md       # /security: Threat modeling & security audits
-│   └── test.md           # /test: Test generation & verification
+├── prompts/                              # Slash command prompt templates
+│   ├── README.md                         # Detailed guide & argument hint documentation
+│   ├── code-review.md                    # /code-review: Systematic code review & diff analysis
+│   ├── commit-message-in-japanese.md     # /commit-message-in-japanese: Japanese Conventional Commit generator
+│   ├── explain-code.md                   # /explain-code: Architecture & code walkthrough
+│   ├── fix-bug.md                        # /fix-bug: Reproduce, isolate, edit, verify bug fix
+│   ├── generate-documentation.md         # /generate-documentation: Inline & Markdown docs generator
+│   ├── generate-pr-description.md        # /generate-pr-description: PR title & description generator
+│   ├── generate-tests.md                 # /generate-tests: Test generation & verification
+│   ├── optimize-performance.md           # /optimize-performance: Profile & optimize performance
+│   ├── refactor-code.md                  # /refactor-code: Safe refactoring with test verification
+│   └── security-audit.md                 # /security-audit: Threat modeling & security audits
 ├── themes/
-│   └── my-theme.json     # Custom TUI theme
-├── git/                  # Git-related configuration
-├── npm/                  # Package-related configuration
-├── .gitignore            # Ignores sessions, auth, caches, and local stores
-└── README.md             # Repository documentation
+│   └── my-theme.json                     # Custom TUI theme
+├── git/                                  # Git-related configuration
+├── npm/                                  # Package-related configuration
+├── .gitignore                            # Ignores sessions, auth, caches, and local stores
+└── README.md                             # Repository documentation
 ```
 
 ---
@@ -49,16 +49,16 @@ All prompt templates in `prompts/` are configured with `argument-hint` frontmatt
 
 | Command | Argument Hint | Description |
 | :--- | :--- | :--- |
-| `/commit` | `[context or instructions]` | Inspect staged/unstaged git diff and generate a Conventional Commit message in Japanese. |
-| `/document` | `<file or directory>` | Generate or update inline docstrings (JSDoc, Python docstrings) or project Markdown documentation. |
-| `/explain` | `<file, symbol, or concept>` | Deep-dive architectural walkthrough and design rationale for files, symbols, or concepts. |
-| `/fix` | `<error message, failing test, or issue>` | Reproduce bug via `bash`, isolate root cause, apply minimal fix, and verify with tests. |
-| `/optimize` | `<file, function, or issue>` | Profile bottlenecks, optimize algorithmic/IO/memory complexity, and verify with tests/benchmarks. |
-| `/pr` | `[base-branch]` | Auto-detect base branch (`main`/`master`), inspect commits & diffs, and generate structured PR description. |
-| `/refactor` | `<file, function, or directory>` | Safe code refactoring with pre/post test verification to ensure zero behavioral regression. |
-| `/review` | `[file, branch, or commit]` | Systematic multi-perspective code review (bugs, security, performance, maintainability) with severity tags. |
-| `/security` | `[file, directory, or dependency]` | Threat-modeled security audit covering injection, auth, secret exposure, and dependencies. |
-| `/test` | `<file or function>` | Detect project test framework, generate comprehensive test suites, and execute until all pass. |
+| `/commit-message-in-japanese` | `[context or instructions]` | Inspect staged/unstaged git diff and generate a Conventional Commit message in Japanese. |
+| `/generate-documentation` | `<file or directory>` | Generate or update inline docstrings (JSDoc, Python docstrings) or project Markdown documentation. |
+| `/explain-code` | `<file, symbol, or concept>` | Deep-dive architectural walkthrough and design rationale for files, symbols, or concepts. |
+| `/fix-bug` | `<error message, failing test, or issue>` | Reproduce bug via `bash`, isolate root cause, apply minimal fix, and verify with tests. |
+| `/optimize-performance` | `<file, function, or issue>` | Profile bottlenecks, optimize algorithmic/IO/memory complexity, and verify with tests/benchmarks. |
+| `/generate-pr-description` | `[base-branch]` | Auto-detect base branch (`main`/`master`), inspect commits & diffs, and generate structured PR description. |
+| `/refactor-code` | `<file, function, or directory>` | Safe code refactoring with pre/post test verification to ensure zero behavioral regression. |
+| `/code-review` | `[file, branch, or commit]` | Systematic multi-perspective code review (bugs, security, performance, maintainability) with severity tags. |
+| `/security-audit` | `[file, directory, or dependency]` | Threat-modeled security audit covering injection, auth, secret exposure, and dependencies. |
+| `/generate-tests` | `<file or function>` | Detect project test framework, generate comprehensive test suites, and execute until all pass. |
 
 > 📖 See [prompts/README.md](prompts/README.md) for detailed usage examples, argument quoting rules, and instructions on creating new templates.
 
