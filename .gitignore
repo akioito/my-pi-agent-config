@@ -1,10 +1,10 @@
 extensions/
 sessions/
+cache/
 .extmgr-cache
-settings.json
+settings.json*
 auth.json
-cache/pi-xai-oauth/models-v2.json
-cache/modules/
+package-trust-audit.jsonl
 claude-bridge-diag.log
 models-store.json
 sandbox.json
