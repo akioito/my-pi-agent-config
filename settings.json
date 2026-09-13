@@ -1,0 +1,27 @@
+{
+  "autocompleteMaxVisible": 20,
+  "lastChangelogVersion": "0.85.1",
+  "defaultProvider": "xai",
+  "defaultModel": "grok-4.6",
+  "quietStartup": false,
+  "theme": "my-theme",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-vim",
+    "npm:@tmustier/pi-usage-extension",
+    "npm:pi-extmgr",
+    "git:github.com/earendil-works/pi-review",
+    "npm:@vanillagreen/pi-claude-bridge",
+    "npm:@twogiants/pi-anthropic-vertex",
+    "npm:pi-xai-oauth",
+    "npm:@jasonish/pi-default-model",
+    "npm:pi-claude-marketplace"
+  ],
+  "modelThinkingLevels": {
+    "anthropic-vertex/claude-opus-5": "off"
+  },
+  "startupModel": {
+    "model": "google/gemini-3.8-flash",
+    "thinkingLevel": "high"
+  }
+}

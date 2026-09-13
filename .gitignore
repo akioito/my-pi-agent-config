@@ -2,7 +2,6 @@ extensions/
 sessions/
 cache/
 .extmgr-cache
-settings.json*
 auth.json
 package-trust-audit.jsonl
 claude-bridge-diag.log
