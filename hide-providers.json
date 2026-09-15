@@ -1,0 +1,10 @@
+{
+  "hide": [
+    {
+      "provider": "openrouter"
+    },
+    {
+      "provider": "groq"
+    }
+  ]
+}
