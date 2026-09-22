@@ -1,6 +1,6 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "0.87.0",
+  "lastChangelogVersion": "0.87.1",
   "defaultProvider": "xai",
   "defaultModel": "grok-4.6",
   "quietStartup": false,
@@ -11,13 +11,13 @@
     "npm:@tmustier/pi-usage-extension",
     "npm:pi-extmgr",
     "git:github.com/earendil-works/pi-review",
-    "npm:@vanillagreen/pi-claude-bridge",
     "npm:@twogiants/pi-anthropic-vertex",
     "npm:pi-xai-oauth",
     "npm:@jasonish/pi-default-model",
     "npm:pi-claude-marketplace",
     "npm:pi-hide-providers",
-    "npm:@rahularya01/pi-cursor"
+    "npm:@rahularya01/pi-cursor",
+    "npm:pi-claude-bridge"
   ],
   "modelThinkingLevels": {
     "anthropic-vertex/claude-opus-5": "off"
