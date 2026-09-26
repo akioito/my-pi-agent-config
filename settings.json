@@ -16,8 +16,7 @@
     "npm:@jasonish/pi-default-model",
     "npm:pi-claude-marketplace",
     "npm:pi-hide-providers",
-    "npm:@rahularya01/pi-cursor",
-    "npm:pi-claude-bridge"
+    "npm:@rahularya01/pi-cursor"
   ],
   "modelThinkingLevels": {
     "anthropic-vertex/claude-opus-5": "off"
