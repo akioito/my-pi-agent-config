@@ -1,6 +1,6 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.2",
   "defaultProvider": "xai",
   "defaultModel": "grok-4.6",
   "quietStartup": false,
@@ -25,5 +25,6 @@
   "startupModel": {
     "model": "claude-bridge/claude-opus-5-5",
     "thinkingLevel": "high"
-  }
+  },
+  "tuiMode": "regular"
 }
