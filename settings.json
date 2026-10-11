@@ -1,6 +1,6 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "1.0.2",
+  "lastChangelogVersion": "1.1.0",
   "defaultProvider": "xai",
   "defaultModel": "grok-4.6",
   "quietStartup": false,
@@ -16,14 +16,13 @@
     "npm:@jasonish/pi-default-model",
     "npm:pi-claude-marketplace",
     "npm:pi-hide-providers",
-    "npm:@rahularya01/pi-cursor",
-    "npm:pi-claude-bridge"
+    "npm:@rahularya01/pi-cursor"
   ],
   "modelThinkingLevels": {
     "anthropic-vertex/claude-opus-5": "off"
   },
   "startupModel": {
-    "model": "claude-bridge/claude-opus-5-5",
+    "model": "anthropic-vertex/claude-opus-5-5",
     "thinkingLevel": "high"
   },
   "tuiMode": "regular"

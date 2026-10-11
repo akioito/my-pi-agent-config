@@ -10,3 +10,5 @@ sandbox.json
 trust.json
 usage-extension-cache.json
 claude-bridge.json
+bin/
+install/
