@@ -1,6 +1,6 @@
 {
   "autocompleteMaxVisible": 20,
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.2.0",
   "defaultProvider": "xai",
   "defaultModel": "grok-4.6",
   "quietStartup": false,
@@ -16,7 +16,8 @@
     "npm:@jasonish/pi-default-model",
     "npm:pi-claude-marketplace",
     "npm:pi-hide-providers",
-    "npm:@rahularya01/pi-cursor"
+    "npm:@rahularya01/pi-cursor",
+    "npm:@estebanforge/pi-antigravity-bridge"
   ],
   "modelThinkingLevels": {
     "anthropic-vertex/claude-opus-5": "off"
